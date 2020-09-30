@@ -2,46 +2,19 @@
 
 const faker = require('faker');
 
-const Events = require('events');
+const events = require('./events');
 
-const events = new Events();
-
-function pickup(payload) {
-  console.log('Event:', payload);
-}
-
-function inTransit(payload) {
-  setTimeout(() => {
-    if(payload.event == 'Pickup') {
-      payload.event = 'In Transit';
-      console.log('Event:', payload);
-    }
-  },1000);
-}
-
-function delivered(payload) {
-  setTimeout(() => {
-    if(payload.event == 'In Transit') {
-      payload.event = 'Delivered';
-      console.log('Event:', payload);
-    }
-  },3000);
-}
+require('./vendor.js');
+require('./driver.js');
 
 //VENDOR
-events.on('create', pickup);
+events.on('pickup', logger);
 
 //DRIVER
-events.on('create', inTransit);
-
-//DRIVER
-events.on('create', delivered);
+events.on('inTransit', logger);
 
 
-setInterval(() => {
-  let storeNum = faker.phoneNumber();
-  let orderNum = faker.random.uuid();
-  let customerName = faker.name.findName();
-  let customerAddress = faker.address.streetAddress();
-  events.emit('create', { event: 'Pickup', time: Date(Date.now), payload: { store: storeNum, orderID: orderNum, customer: customerName, address: customerAddress}});
-},5000);
+function logger(payload) {
+  console.log('==================================');
+  console.log('CAPS', payload);
+}
