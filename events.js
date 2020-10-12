@@ -1,9 +1,10 @@
-'use strict';
+// 'use strict';
 
-const Events = require('events');
+// const io = require('socket.io-client');
 
-const events = new Events();
+// let host = 'http://localhost:5000';
+
+//const capsConnection = io.connect(host)
 
 
 
-module.exports = events;
