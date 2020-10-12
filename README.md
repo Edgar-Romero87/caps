@@ -1,6 +1,6 @@
 # CAPS
 
-## Project: Caps
+## Project:   Code Academy Parcel Services-CAPS
 
 ## Author: Edgar Romero
 
@@ -19,26 +19,40 @@ front-end application (when applicable)
 * As a driver, I want to alert the system when a package has been delivered
 * As a vendor, I want to be notified when my package has been delivered
 ### Setup
+To initialize as an pnm project, run the following command:
+`npm init -y`
+
+Dependencies: 
+```
+"dependencies": {
+    "@code-fellows/supergoose": "^1.0.11",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "faker": "^5.1.0",
+    "jest": "^26.4.2",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.1"
+```
+and add a .env file to your repo, then set the port to 5000.
+- `PORT=`
 
 .env requirements (where applicable)
 
-npm i and add a .env file to your repo, then set the port to 3000.
 
 ### How to initialize/run your application (where applicable)
 
 --TO RUN THE APPLICATION--
 
-In the Terminal(s) run
-nodemon
-How to use your library (where applicable)
+In the Terminal(s) run:
+`nodemon caps.js || node caps.js `
 
 ### Tests
 
-How do you run tests?
+Tests are handled with the jest testing library. Install jest to the dev dependencies. Follow the command:
 
-Any tests of note?
-Describe any tests that you did not complete, skipped, etc
+`npm i --save-dev jest`
 
 ### UML
 
-Link to an image of the UML for your application and response to events
+
+![whiteboard](assets/Lab-18-UML.jpg)
